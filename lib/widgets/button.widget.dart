@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:login/pages/register.page.dart';
 
 class ButtonWidget extends StatelessWidget {
   ButtonWidget({
@@ -6,17 +7,20 @@ class ButtonWidget extends StatelessWidget {
     required this.id,
     required this.text,
     required this.textColor,
-    required this.buttonColor
+    required this.buttonColor,
+    required this.onPressed,
     });
 
     late int id;
     late String text;
     late Color textColor;
     late Color buttonColor;
+    late VoidCallback? onPressed;
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
+      onPressed: onPressed,
       style: ButtonStyle(
         backgroundColor: WidgetStatePropertyAll(buttonColor),
         fixedSize: WidgetStatePropertyAll(Size(350, 48)),
@@ -25,8 +29,7 @@ class ButtonWidget extends StatelessWidget {
             borderRadius: BorderRadius.circular(16)
           )
         ),
-      ),
-      onPressed: null, 
+      ), 
       child: Text(
         text,
         style: TextStyle(
